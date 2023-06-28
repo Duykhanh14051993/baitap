@@ -25,6 +25,23 @@ customElements.define("main-container", class extends HTMLElement {
     renderStyle() {
       return `
         <style>
+        .container-wrapper{
+            background-color: black;
+            width: 100%;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+         }
+         h1{
+            background-color: red;
+            width: 100%;
+            height: 50px;
+            margin-top: 50px;
+            color: white;
+            text-align: center;
+        }
+        
         
         </style>
         
@@ -35,7 +52,10 @@ customElements.define("main-container", class extends HTMLElement {
       this.style.cssText = this.renderContainerCSS();
       const html = `
         ${this.renderStyle()}
+        <div class="container-wrapper">
+        <h1>Who's watching?</h1>
         
+   </div>
         <slot>     
         </slot>
       `;
