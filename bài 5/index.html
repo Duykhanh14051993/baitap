@@ -10,18 +10,54 @@
     <style>
       body {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         padding: 0;
         margin: 0;
       }
+      .title{
+            color: white;
+            background-color: black;
+            width: 800px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .layout{
+            background-color: black;
+                width: 800px;
+                height: 200px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                color: white;
+          }
+          .layout img{
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+          }
+          .row1{    
+            margin-left: 20px;
+          }
+          .name{
+            margin-left: 10px;
+    
+          }
 
     </style>
   </head>
   <body>
-    <main-container>
-        <product-item1></product-item1>
-    </main-container>
+    <div class="title">
+        <h1> Who's watching? </h1>
+    </div>
+    <div class="layout">
+        <div class="row1">
+        <img src="https://ih0.redbubble.net/image.618379802.1473/flat,1000x1000,075,f.u2.jpg" alt="image1" class="image1" />
+        <p class= "name">Huyden181</p>
+        </div>
+    </div> 
 </body>
 </html>
