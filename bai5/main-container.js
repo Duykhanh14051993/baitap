@@ -18,22 +18,31 @@ customElements.define("main-container", class extends HTMLElement {
   
     renderContainerCSS() {
       return `
-        
+      .container-wrapper{
+        background-color: black;
+        width: 100%;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+     } 
+     
       `;
     }
   
     renderStyle() {
       return `
         <style>
-        .container-wrapper{
-            background-color: black;
+        slot {
             width: 100%;
-            height: 400px;
+            background-color: pink;
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            max-width: 1024px;
+            justify-content: center;
             align-items: center;
-         }
-         h1{
+          }
+        h1{
             background-color: red;
             width: 100%;
             height: 50px;
@@ -41,8 +50,6 @@ customElements.define("main-container", class extends HTMLElement {
             color: white;
             text-align: center;
         }
-        
-        
         </style>
         
       `;
