@@ -27,18 +27,16 @@ class MainContainer extends HTMLElement {
         box-sizing: border-box;
       }
       div {
-        width: 100vw;
+        width: 100%;
         height: 500px;
         align-items: center;
       }
       slot {
         width: 100%;
-        background-color: pink;
+        background-color: white;
         display: flex;
         flex-wrap: wrap;
-        max-width: 1024px;
-        justify-content: center;
-        align-items: center;
+        max-width: 1080px;
       }
     </style>
     <div>

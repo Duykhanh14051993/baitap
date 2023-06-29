@@ -19,24 +19,25 @@ class MainContainer extends HTMLElement {
     renderHTML() {
       const html = `
       <style>
-        div {
-          display: flex;
-          flex-direction: column;
-          position: relative;
-          flex-shrink: 0;
-          box-sizing: border-box;
-        }
-        div {
-          width: 100vw;
-          height: 500px;
-          align-items: center;
-        }
+      div {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        flex-shrink: 0;
+        box-sizing: border-box;
+      }
+      div {
+        width: 100%;
+        height: 500px;
+      }
         slot {
+          background-color: white;
           width: 100%;
-          background-color: pink;
           display: flex;
           flex-wrap: wrap;
-          max-width: 1024px;
+          max-width: 1080px;
+          justify-content: center;
+          align-items: center;
         }
       </style>
       <div>
