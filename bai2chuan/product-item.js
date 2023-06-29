@@ -28,7 +28,7 @@ class ProductOne extends HTMLElement {
       <style>
        
         .item{
-          background-color: pink;
+          background-color: white;
           width: 100%;
           height: 300px;
           margin-top: 10px;
