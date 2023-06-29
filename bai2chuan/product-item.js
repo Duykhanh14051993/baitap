@@ -26,31 +26,23 @@ class ProductOne extends HTMLElement {
     renderHTML() {
       const html = `
       <style>
-        .container-wrapper{
-          background-color: white;
-          width: 100%;
-          height: 300px;
-          padding: 0;
-          margin; 0;
-          display; flex;
-          flex-direction: column;
-        }
+       
         .item{
-          background-color: white;
+          background-color: pink;
           width: 100%;
           height: 300px;
           margin-top: 10px;
         }
         .image img{
           background-color: #f5f5f5;
-          width: 250px;
+          width: 100%;
           height: 200px;
         }
         .name{
           width: 100%;
           height: 20px;
           margin-top: 10px;
-          font-size: 18px;
+          font-size: 15px;
           margin-left: 5px;
         }
         .price{
@@ -62,11 +54,11 @@ class ProductOne extends HTMLElement {
           margin-left: 5px;
         }
         .price1{
-          font-size: 12px;
+          font-size: 10px;
           text-decoration: line-through;
         }
         .price2{
-          font-size: 18px;
+          font-size: 15px;
           margin-top: 8px;
           margin-left: 2px;
         }
