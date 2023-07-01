@@ -9,26 +9,55 @@
     <script src="product-item.js"></script>
     <style>
         body{
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0; 
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
         }
-        
-      
-        
     </style>
   </head>
   <body>
    <main-container>
-    <product-item></product-item>
-    <product-item></product-item>
-    <product-item></product-item>
-    <product-item></product-item>
-    <product-item></product-item>
+    
    </main-container>
+   <script>
+    const list = [
+    {
+      image: 'https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-vnl1thqrh02x7ra2.jpg',
+      name : 'huyden181',
+    },
+    {
+      image: 'https://ih0.redbubble.net/image.618379802.1473/flat,1000x1000,075,f.u2.jpg',
+      name : '4Bannn',
+    },
+    {
+      image: 'https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-88wkdmjrorckekha.jpg',
+      name : 'Miao Miao',
+    },
+    {
+      image: 'https://img.freepik.com/premium-vector/world-smile-day-template-free-vector_668862-43.jpg?w=2000',
+      name : 'KimTaUn',
+    },
+    {
+      image: 'https://i.pinimg.com/originals/34/62/d2/3462d27440aa255b1c314ff16f4032b4.png',
+      name : 'Hhhh',
+    },
+    ];
+    const listHTML = list.map((item)=>{
+            return `
+            <product-item
+            image="${item.image}"
+            name="${item.name}"
+            ></product-item>
+             `
+        });
+        const joined = listHTML.join('\n');
+        console.log(joined);
+        const mainContainer = document.querySelector('main-container');
+        if (mainContainer){
+            mainContainer.innerHTML =joined;
+        }
+   </script>
 </body>
 </html>

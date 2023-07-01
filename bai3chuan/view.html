@@ -35,15 +35,16 @@
         height: 200px;
         margin-top: 20px;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        flex-direction:column;
+        /* justify-content: space-between; */
     }
     .item{
         background-color: pink;
-        width: calc( 30% - 20px ) ;
+        width: calc( 20% - 20px ) ;
         height: 150px;
-        margin: 20px;
-        flex-direction: space-between;
+        margin: 10px;
+        /* flex-direction: space-between; */
     }
     .item img{
         width: 100%;

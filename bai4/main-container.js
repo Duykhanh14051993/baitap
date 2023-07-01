@@ -18,16 +18,7 @@ customElements.define("main-container", class extends HTMLElement {
   
     renderContainerCSS() {
       return `
-      .container{
-        background-color: black;
-        width: 100%;
-        height: 400px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-      }
+       
       `;
     }
   
@@ -35,7 +26,7 @@ customElements.define("main-container", class extends HTMLElement {
       return `
         <style>
           slot {
-        
+           
           }
           
           

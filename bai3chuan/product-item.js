@@ -5,9 +5,11 @@ customElements.define("product-item", class extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return [];
+    return ['image', 'name'];
   }
-
+  attr (name){
+    return this.getAttribute(name);
+  }
   attributeChangedCallback(attrName, oldVal, newVal) {
     this.renderHTML();
   }
@@ -18,31 +20,33 @@ customElements.define("product-item", class extends HTMLElement {
 
   renderContainerCSS() {
     return `
-    
-
-
+    background-color: black;
+        width: calc( 20% - 20px ) ;
+        height: 200px;
+          margin: 10px;
      `;
   }
 
   renderStyle() {
     return `
       <style>
-     
-    .item{
-        background-color: pink;
-        width: calc(20% - 20px);
+    .image{
+        width: 100%;
         height: 150px;
-        margin: 20px;
     }
-    .items{
-      background-color: wheat;
-      width: 100%;
-      height: 200px;
-      margin-top: 20px;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-  }
+    .image img{
+        width:100%;
+        height:150px;
+        object-fit:cover;
+    }
+    .name{
+        width: 100%;
+        height:50px;
+        text-align: center;
+        color: gray;
+        font-size: 20px;
+        font-weight: 800px;
+    }
       </style>
       
     `
@@ -53,13 +57,14 @@ customElements.define("product-item", class extends HTMLElement {
     this.style.cssText = this.renderContainerCSS();
     const html = `
       ${this.renderStyle()}
-      <div class="items">
       <div class="item">
-                <div class="image"></div>
-                <div class="name"></div>
+                <div class="image">
+                <img src="${this.attr('image')}"/>
+                </div>
+                <div class="name">
+                <p>${this.attr('name')}</p>
+                </div>
             </div>
-      </div>      
-      <slot></slot>
     `;
     this.shadow.innerHTML = html;
   }
