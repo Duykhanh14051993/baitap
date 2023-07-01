@@ -1,4 +1,4 @@
-customElements.define("main-container", class extends HTMLElement {
+customElements.define("product-item", class extends HTMLElement {
     constructor() {
       super();
       this.shadow = this.attachShadow({ mode: "open" });
@@ -18,16 +18,9 @@ customElements.define("main-container", class extends HTMLElement {
   
     renderContainerCSS() {
       return `
-      .container{
-        background-color: black;
-        width: 100%;
-        height: 400px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-      }
+        width: 100p%;
+        height: 100px;
+        background-color: #${Math.floor(Math.random()*16777215).toString(16)}; // random
       `;
     }
   
@@ -35,10 +28,8 @@ customElements.define("main-container", class extends HTMLElement {
       return `
         <style>
           slot {
-        
+            
           }
-          
-          
         </style>
       `;
     }
@@ -46,8 +37,6 @@ customElements.define("main-container", class extends HTMLElement {
     renderHTML() {
       this.style.cssText = this.renderContainerCSS();
       const html = `
-      <div class="container">
-        </div>
         ${this.renderStyle()}
         <slot></slot>
       `;
@@ -55,4 +44,3 @@ customElements.define("main-container", class extends HTMLElement {
     }
   });
     
-  

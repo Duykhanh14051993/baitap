@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style></style>
+    <script src="main-container.js"></script>
+    <script src="product-item.js"></script>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+      }
+      .container{
+        background-color: white;
+        width: 100%;
+        height: 700px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .item{
+        background-color:white;
+        width: calc( 33% - 80px );
+        height: 300px;
+        margin-left: 15px;
+      }
+      .row1{
+        background-color: red;
+        width: 100%;
+        height: 125px;
+      }
+      .row1 img{
+        width: 100%;
+        height: 125px;
+      }
+      .row2{
+        background-color: white;
+        width: 100%;
+        height: 30px;
+      }
+      .row3{
+        background-color: white;
+        width: 100%;
+        height: 100px;
+      }
+      .row4{
+        background-color: white;
+        width: 100%;
+        height: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        flex: 0;
+        margin-top: 5px;
+      }
+      p{
+        font-size: 15px;
+      }
+      .button{
+        padding: 8px 15px;
+        background-color: red;
+        flex: 1;
+      }
+      .price{
+        flex: 8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="item">
+        <div class="row1">
+          <img src="https://topdev.vn/blog/wp-content/uploads/2018/06/logo-google-cloud-cropped.jpg" alt="google-cloud">
+        </div>
+        <div class="row2">
+          <p>Google Cloud</p>
+        </div>
+        <div class="row3">
+          <p>Google Cloud is a hyperscale platform that allows you to grow your business faster.
+            Try it free today with a $350 credit to explore usage of 20+ products.</p>
+        </div>
+        <div class="row4">
+          <p class="price">$350 in free trial credit</p>
+          <p class="button">Join</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row1">
+          <img src="https://topdev.vn/blog/wp-content/uploads/2018/06/logo-google-cloud-cropped.jpg" alt="google-cloud">
+        </div>
+        <div class="row2">
+          <p>CloudDevs - Hire Developers</p>
+        </div>
+        <div class="row3">
+          <p>Exclusive for Producthunt users. Get 2 weeks risk free trial instead of 1 week. Get 1000$ free development credits when you hire any full-time talent.</p>
+        </div>
+        <div class="row4">
+          <p class="price">2 weeks trial and 1000s off</p>
+          <p class="button">Join</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row1">
+          <img src="https://topdev.vn/blog/wp-content/uploads/2018/06/logo-google-cloud-cropped.jpg" alt="google-cloud">
+        </div>
+        <div class="row2">
+          <p>Securefram</p>
+        </div>
+        <div class="row3">
+          <p>Secureframe streamlines compliance for dozens of frameworks including SOC 2, ISO 27001, HIPAA, PCI, & more. With guided workflows and one-click
+            integrations, the entire process is automated. Get
+            compliant in weeks-not months.</p>
+        </div>
+        <div class="row4">
+          <p class="price">20% off for 1 year</p>
+          <p class="button">Join</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row1">
+          <img src="https://topdev.vn/blog/wp-content/uploads/2018/06/logo-google-cloud-cropped.jpg" alt="google-cloud">
+        </div>
+        <div class="row2">
+          <p>Pipedrive</p>
+        </div>
+        <div class="row3">
+          <p>The first CRM designed by salespeople, for salespeople. Do more to grow your business.</p>
+        </div>
+        <div class="row4">
+          <p class="price">30 days free & 20% off year one</p>
+          <p class="button">Join</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row1">
+          <img src="https://topdev.vn/blog/wp-content/uploads/2018/06/logo-google-cloud-cropped.jpg" alt="google-cloud">
+        </div>
+        <div class="row2">
+          <p>Remotebase</p>
+        </div>
+        <div class="row3">
+          <p>A marketplace that matches startups with the top 1% of software engineering talent. Remotebase engineers are thoroughly vetted and are available to hire immediately, at a fixed monthly cost.</p>
+        </div>
+        <div class="row4">
+          <p class="price">2-week trial & 30% off month one</p>
+          <p class="button">Join</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="row1">
+          <img src="https://topdev.vn/blog/wp-content/uploads/2018/06/logo-google-cloud-cropped.jpg" alt="google-cloud">
+        </div>
+        <div class="row2">
+          <p>Intercom for Startups</p>
+        </div>
+        <div class="row3">
+          <p>Give your startup a great headstart with 12 free months on the Intercom for Startups Program-and use our all-in-one service platform for engaging, onboarding, and supporting your customers.</p>
+        </div>
+        <div class="row4">
+          <p class="price">12 Months Free </p>
+          <p class="button">Join</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
