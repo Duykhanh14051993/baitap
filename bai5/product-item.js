@@ -5,9 +5,11 @@ customElements.define("product-item", class extends HTMLElement {
     }
   
     static get observedAttributes() {
-      return [];
+      return [ 'content1', 'content2'];
     }
-  
+    attr (name){
+      return this.getAttribute(name);
+    }
     attributeChangedCallback(attrName, oldVal, newVal) {
       this.renderHTML();
     }
@@ -18,18 +20,38 @@ customElements.define("product-item", class extends HTMLElement {
   
     renderContainerCSS() {
       return `
-        width: 100p%;
-        height: 100px;
-        background-color: #${Math.floor(Math.random()*16777215).toString(16)}; // random
+      background-color: white;
+      width: calc( 20% - 20px );
+      height: 50vh;
+      margin-left: 5px;
+      margin-top: 10px;
+      margin-bottom: 10px;
       `;
     }
   
     renderStyle() {
       return `
         <style>
-          slot {
-            
-          }
+        .row1{
+          display: flex;
+          flex-direction: row;
+        }
+        .icon{
+          width: 25px;
+          height: 25px;
+          margin: 5px;
+        }
+        .icon img{
+          width: 50px;
+          height: 50px;
+        }
+        .content{
+          width: 95%;
+          height:250px;
+          margin-top: 15px;
+          margin-left: 5px;
+          font-size: 15px;
+        }
         </style>
       `;
     }
@@ -38,8 +60,16 @@ customElements.define("product-item", class extends HTMLElement {
       this.style.cssText = this.renderContainerCSS();
       const html = `
         ${this.renderStyle()}
-        <slot></slot>
-      `;
+        <div class="row1">
+            <div class="icon">
+              <img src="./image/icon.png" alt="icon">
+            </div>
+        </div>
+        <div class="content">
+            <P class="content1">${this.attr('content1')}</P>
+            <p class="content2">${this.attr('content2')}<br/>${this.attr('content3')}</p>
+        </div>
+              `;
       this.shadow.innerHTML = html;
     }
   });

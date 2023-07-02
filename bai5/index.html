@@ -18,6 +18,48 @@
   </head>
 
   <body>
-    
+    <main-container>
+
+    </main-container>
+    <script>
+      const list = [
+      {
+        content1:"Stack Overflow for Teams has been a resource for our entire company. Not only for developers to solve problems, it's also enabled our sales field to answer technical questions that help them close deals.",
+        content2:"Director of Product Management",
+        content3:"Microsoft",
+      },
+      {
+        content1:"Engineers should help solve the hardest questions, the unknowns, where being familiar with how the product was built is essential. But we don't want to keep answering solved problems over and over again. That's where Stack Overflow for Teams really helps.",
+        content2:"Director of Engineering",
+        content3:"Elastic Cloud",
+      },
+      {
+        content1:"As we started to use [Stack Overflow for Teams] and saw how nice it was to have a repository of information, we started to see it spread to other teams. Our customer support team started using it, our people success team started using it, next thing we knew, we had [Slack] integrations all over the place.",
+        content2:"Director of Product",
+        content3:"Management Microsoft",
+      },
+      {
+        content1:"What we love about Stack Overflow for Teams is that it's a very dynamic tool...there's just so many ways to use this as a liaison between different teams and different knowledge bases.",
+        content2:"Software Engineer",
+        content3:"Box",
+
+      },
+      ];
+      const listHTML = list.map((item)=>{
+              return `
+              <product-item
+              content1="${item.content1}"
+              content2="${item.content2}"
+              content3="${item.content3}"
+              ></product-item>
+               `
+          });
+          const joined = listHTML.join('\n');
+          console.log(joined);
+          const mainContainer = document.querySelector('main-container');
+          if (mainContainer){
+              mainContainer.innerHTML =joined;
+          }
+     </script>
   </body>
 </html>
