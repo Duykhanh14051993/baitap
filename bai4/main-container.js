@@ -18,7 +18,14 @@ customElements.define("main-container", class extends HTMLElement {
   
     renderContainerCSS() {
       return `
-       
+      box-sizing: border-box;
+      width:100%;
+      height:100vh;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       `;
     }
   
@@ -26,10 +33,15 @@ customElements.define("main-container", class extends HTMLElement {
       return `
         <style>
           slot {
-           
+        background-color: black;
+        width: 100%;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
           }
-          
-          
         </style>
       `;
     }
@@ -37,8 +49,6 @@ customElements.define("main-container", class extends HTMLElement {
     renderHTML() {
       this.style.cssText = this.renderContainerCSS();
       const html = `
-      <div class="container">
-        </div>
         ${this.renderStyle()}
         <slot></slot>
       `;

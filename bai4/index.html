@@ -15,137 +15,117 @@
         margin: 0;
         box-sizing: border-box;
       }
-      .container{
-        background-color: black;
-        width: 100%;
-        height: 400px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-      }
-      .item{
-        background-color: darkgrey;
-        width: calc( 15% - 10px );
-        height: 180px;
-        margin-left: 5px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-      }
-      .link-youtube{
-        background-color: chocolate;
-        width: 100%;
-        height: 90px;
-        border-radius: 10px;
-      }
-      .content {
-        margin-top: 5px;
-        display: flex;
-        flex-direction: row;
-      }
-      .logo{
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        background-color: chocolate;
-        margin-left: 2px;
-      }
-      .info{
-        background-color: chocolate;
-        width: 80%;
-        height: 70px;
-        margin-left: 5px;
-      }
     </style>
   </head>
 
   <body>
-    <div class="container">
-      <div class="item">
-        <div class="link-youtube"></div>
-        <div class="content">
-        <div class="logo"></div>
-        <div class="info"></div>
-        </div>
-      </div>
-    <div class="item">
-      <div class="link-youtube"></div>
-      <div class="content">
-      <div class="logo"></div>
-      <div class="info"></div>
-      </div>
-  </div>
-  <div class="item">
-    <div class="link-youtube"></div>
-    <div class="content">
-    <div class="logo"></div>
-    <div class="info"></div>
-    </div>
-</div>
-<div class="item">
-  <div class="link-youtube"></div>
-  <div class="content">
-  <div class="logo"></div>
-  <div class="info"></div>
-  </div>
-</div>
-<div class="item">
-  <div class="link-youtube"></div>
-  <div class="content">
-  <div class="logo"></div>
-  <div class="info"></div>
-  </div>
-</div>
-<div class="item">
-  <div class="link-youtube"></div>
-  <div class="content">
-  <div class="logo"></div>
-  <div class="info"></div>
-  </div>
-</div>
-<div class="item">
-  <div class="link-youtube"></div>
-  <div class="content">
-  <div class="logo"></div>
-  <div class="info"></div>
-  </div>
-</div>
-<div class="item">
-  <div class="link-youtube"></div>
-  <div class="content">
-  <div class="logo"></div>
-  <div class="info"></div>
-  </div>
-</div>
-<div class="item">
-  <div class="link-youtube"></div>
-  <div class="content">
-  <div class="logo"></div>
-  <div class="info"></div>
-  </div>
-</div>
-<div class="item">
-  <div class="link-youtube"></div>
-  <div class="content">
-  <div class="logo"></div>
-  <div class="info"></div>
-  </div>
-</div>
-<div class="item">
-  <div class="link-youtube"></div>
-  <div class="content">
-  <div class="logo"></div>
-  <div class="info"></div>
-  </div>
-</div>
-<div class="item">
-  <div class="link-youtube"></div>
-  <div class="content">
-  <div class="logo"></div>
-  <div class="info"></div>
-  </div>
-</div>
-    </div>
+    <main-container>
+
+    </main-container>
+    <script>
+        const list = [
+        {
+          image:"https://i.ytimg.com/vi/qnWHSf083os/maxresdefault.jpg",
+          logo:"./image/logo1.png",
+          content: "Anh đã từ bỏ rồi đấy (Lofi ver) - Nguyenn, Aric | Một ngày của em trôi ...",
+          name:"Buồn & Cô Đơn ♪",
+          view:"11k views - 1 day ago",
+        },
+        {
+          image:"https://i.ytimg.com/vi/jgpJVI3tDbY/maxresdefault.jpg",
+          logo:"./image/logo2.png",
+          content: "The Best of Classical Music 🎻 Mozart, Beethoven, Bach, Chopin, Vivaldi...",
+          name:"Just Instrumental Music",
+          view:"115k views - 1 day ago",
+        },
+        {
+          image:"https://i.ytimg.com/vi/rta0CuhcNpI/mqdefault.jpg",
+          logo:"data:image/jpeg;base64,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",
+          content: "Thích Em Từ Đêm Hôm Qua - HYDRA - Team Thái VG| Rap Việt 2023 [MV ...",
+          name:"Vie Channel - MUSIC",
+          view:"20k views - 2 day ago",
+        },
+        {
+          image:"https://i.ytimg.com/vi/bHFKkCcUjW0/maxresdefault.jpg",
+          logo:"./image/logo4.png",
+          content: "1 hour of Studio Ghibli | Relaxing Piano Music (relax, study, sleep)",
+          name:"Vagabond",
+          view:"12N views - 2 day ago",
+        },
+        {
+          image:"https://i.ytimg.com/vi/rHKCWKZA6RI/maxresdefault.jpg",
+          logo:"./image/logo5.png",
+          content: "Những Bản Piano Cover Cảm Xúc Nhất Của An Coong || An Coong 2020",
+          name:"An Coong Piano ♪",
+          view:"11k views - 2 day ago",
+        },
+        {
+          image:"https://i.ytimg.com/vi/QaAPvoHaQf0/maxresdefault.jpg",
+          logo:"./image/logo6.png",
+          content: "Ghé Vào Tai - UMIE x Freaky x Hổ (Official MV)",
+          name:"UMIE Official ♪",
+          view:"100 views - 1 day ago",
+        },
+        {
+          image:"https://i.ytimg.com/vi/66CmZinUJeg/maxresdefault.jpg",
+          logo:"./image/logo7.png",
+          content: "Mưa Tháng Sáu (Lofi Ver.) - Văn Mai Hương x Grey D x Trung Quân | Nhạc ...",
+          name:" Đậm Sound",
+          view:"1520 views - 2 day ago",
+        },
+        {
+          image:"https://talkstar-photos.s3.amazonaws.com/uploads/2af15f56-0f84-47fd-86f3-70ac0455c68a/LeraBoroditsky_2017W-stageshot.jpg",
+          logo:"./image/logo8.png",
+          content: "How language shapes the way we think │ Lera Boroditsky",
+          name:"TED",
+          view:"11M views - 5 day ago",
+        },
+        {
+          image:"https://i.ytimg.com/vi/DOQFd-fu7FU/maxresdefault.jpg",
+          logo:"./image/logo9.png",
+          content: "3-Hour Study with Me / Ambient ver. / 180° Panama City / Pomodoro 50-10 / Day ...",
+          name:"Sean Study",
+          view:"11N views - 1 day ago",
+        },
+        {
+          image:"https://i.ytimg.com/vi/lmbnwlasLS4/maxresdefault.jpg",
+          logo:"./image/logo10.png",
+          content:"Cafe Jazz 🍹 Sweet Summer Jazz & Positive Bossa Nova to Relax, Study,...",
+          name:"Jazz For Soul",
+          view:"104k views - 5 day ago",
+        },
+        {
+          image:"https://i.ytimg.com/vi/BZya9z-m0p8/maxresdefault.jpg",
+          logo:"./image/logo11.png",
+          content:"When you need rest of your mind Relaxing music for you - Rainy ...",
+          name:"Music Drawing",
+          view:"11k views - 10 day ago",
+        },
+        {
+          image:"https://i.ytimg.com/vi/ETi5p6dyx_I/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDDCZficckZQgkkwxoEh77rAXFTMw",
+          logo:"./image/logo12.png",
+          content:"SofM",
+          name:"SofM",
+          view:"56k views - 7 day ago",
+        },
+        ];
+        const listHTML = list.map((item)=>{
+                return `
+                <product-item
+                image="${item.image}"
+                logo="${item.logo}"
+                content="${item.content}"
+                name="${item.name}"
+                view="${item.view}""
+                ></product-item>
+                 `
+            });
+            const joined = listHTML.join('\n');
+            console.log(joined);
+            const mainContainer = document.querySelector('main-container');
+            if (mainContainer){
+                mainContainer.innerHTML =joined;
+            }
+       </script>
 </body>
 </html>
