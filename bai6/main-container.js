@@ -18,9 +18,13 @@ customElements.define("main-container", class extends HTMLElement {
   
     renderContainerCSS() {
       return `
-        width: 100p%;
-        height: 100px;
-        background-color: #${Math.floor(Math.random()*16777215).toString(16)}; // random
+      box-sizing: border-box;
+      width:100%;
+      height:100vh;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       `;
     }
   
@@ -28,7 +32,13 @@ customElements.define("main-container", class extends HTMLElement {
       return `
         <style>
           slot {
-            
+      background-color: #464d55;
+      width: 100%;
+      height: 100px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
           }
         </style>
       `;

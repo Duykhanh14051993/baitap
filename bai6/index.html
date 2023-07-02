@@ -18,6 +18,47 @@
   </head>
 
   <body>
-    
+    <main-container>
+
+    </main-container>
+    <script>
+      const list = [
+      {
+        image:"./image/icon1.png",
+        content1:"Robust read and write",
+        content2:"API",
+      },
+      {
+        image:"./image/icon2.png",
+        content1:"Single sign-on with AD or",
+        content2:"SAML",
+      },
+      {
+        image:"./image/icon3.png",
+        content1:"your own customer",
+        content2:"success representative",
+      },
+      {
+        image:"./image/icon4.png",
+        content1:"99,5% uptime SLA and",
+        content2:"priority support",
+      },
+      ];
+      const listHTML = list.map((item)=>{
+              return `
+              <product-item
+              image="${item.image}"
+              content1="${item.content1}"
+              content2="${item.content2}"
+              ></product-item>
+               `
+          });
+          const joined = listHTML.join('\n');
+          console.log(joined);
+          const mainContainer = document.querySelector('main-container');
+          if (mainContainer){
+              mainContainer.innerHTML =joined;
+          }
+     </script>
   </body>
 </html>
