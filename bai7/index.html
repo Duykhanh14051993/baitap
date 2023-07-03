@@ -18,6 +18,64 @@
   </head>
 
   <body>
-    
+    <main-container>
+
+    </main-container>
+    <script>
+      const list = [
+      {
+        image:"./image/image1.png",
+        name:"Google Cloud",
+        content:"Google Cloud is a hyperscale platform that allows you to grow your business faster. Try it free today with a $350 credit to explore usage of 20+ products.",
+        price:"$350 in free trial credit",
+      },
+      {
+        image:"./image/image2.png",
+        name:"CloudDevs - Hire Developers",
+        content:"Exclusive for Producthunt users. Get 2 weeks risk free trial instead of 1 week. Get 1000$ free development credits when you hire any full-time talent.",
+        price:"2 weeks trial and 1000s off",
+      },
+      {
+        image:"./image/image3.png",
+        name:"Securefram",
+        content:"Secureframe streamlines compliance for dozens of frameworks including SOC 2, ISO 27001, HIPAA, PCI, & more. With guided workflows and one-click integrations, the entire process is automated. Get compliant in weeks-not months.",
+        price:"20% off for 1 year",
+      },
+      {
+        image:"./image/image4.png",
+        name:"Pipedrive",
+        content:"The first CRM designed by salespeople, for salespeople. Do more to grow your business.",
+        price:"30 days free & 20% off year one",
+      },
+      {
+        image:"./image/image5.png",
+        name:"Remotebase",
+        content:"A marketplace that matches startups with the top 1% of software engineering talent. Remotebase engineers are thoroughly vetted and are available to hire immediately, at a fixed monthly cost.",
+        price:"2-week trial & 30% off month one",
+      },
+      {
+        image:"./image/image6.png",
+        name:"Intercom for Startups",
+        content:"Give your startup a great headstart with 12 free months on the Intercom for Startups Program-and use our all-in-one service platform for engaging, onboarding, and supporting your customers.",
+        price:"12 Months Free"
+      },
+      ];
+      const listHTML = list.map((item)=>{
+              return `
+              <product-item
+              image="${item.image}"
+              name="${item.name}"
+              content="${item.content}"
+              price="${item.price}"
+              ></product-item>
+               `
+          });
+          const joined = listHTML.join('\n');
+          console.log(joined);
+          const mainContainer = document.querySelector('main-container');
+          if (mainContainer){
+              mainContainer.innerHTML =joined;
+          }
+     </script>
   </body>
 </html>

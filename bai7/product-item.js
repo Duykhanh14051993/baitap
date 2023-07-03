@@ -5,7 +5,10 @@ customElements.define("product-item", class extends HTMLElement {
     }
   
     static get observedAttributes() {
-      return [];
+      return [ 'image', 'name', 'content', 'price'];
+    }
+    attr (name){
+      return this.getAttribute(name);
     }
   
     attributeChangedCallback(attrName, oldVal, newVal) {
@@ -18,18 +21,57 @@ customElements.define("product-item", class extends HTMLElement {
   
     renderContainerCSS() {
       return `
-        width: 100p%;
-        height: 100px;
-        background-color: #${Math.floor(Math.random()*16777215).toString(16)}; // random
+        background-color:white;
+        width: calc( 30% - 80px );
+        height: 280px;
+        margin-left: 20px;
       `;
     }
   
     renderStyle() {
       return `
         <style>
-          slot {
-            
-          }
+        .row1{
+          background-color: red;
+          width: 100%;
+          height: 110px;
+        }
+        .row1 img{
+          width: 100%;
+          height: 110px;
+        }
+        .row2{
+          background-color: white;
+          width: 100%;
+          height: 20px;
+        }
+        .row3{
+          background-color: white;
+          width: 100%;
+          height: 100px;
+        }
+        .row4{
+          background-color: white;
+          width: 100%;
+          height: 20px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          flex: 0;
+          margin-top: 5px;
+        }
+        p{
+          font-size: 15px;
+        }
+        .button{
+          padding: 8px 15px;
+          background-color: red;
+          flex: 1;
+        }
+        .price{
+          flex: 8;
+        }
         </style>
       `;
     }
@@ -38,7 +80,19 @@ customElements.define("product-item", class extends HTMLElement {
       this.style.cssText = this.renderContainerCSS();
       const html = `
         ${this.renderStyle()}
-        <slot></slot>
+        <div class="row1">
+        <img src="${this.attr('image')}" alt="google-cloud">
+      </div>
+      <div class="row2">
+        <p>${this.attr('name')}</p>
+      </div>
+      <div class="row3">
+        <p>${this.attr('content')}</p>
+      </div>
+      <div class="row4">
+        <p class="price">${this.attr('price')}</p>
+        <p class="button">Join</p>
+      </div>
       `;
       this.shadow.innerHTML = html;
     }
