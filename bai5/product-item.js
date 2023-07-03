@@ -26,7 +26,6 @@ customElements.define("product-item", class extends HTMLElement {
       margin-left: 5px;
       margin-top: 10px;
       margin-bottom: 10px;
-      border-top: 1px solid black;
       `;
     }
   

@@ -74,6 +74,14 @@ customElements.define("product-item", class extends HTMLElement {
       .info b {
         font-size: 10px;
         color: white;
+        display: -webkit-box;
+        max-height: 40px;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        -webkit-line-clamp: 2;
+        line-height: 1rem;
       }
       </style>
       
