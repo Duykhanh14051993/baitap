@@ -18,9 +18,14 @@ customElements.define("main-container", class extends HTMLElement {
   
     renderContainerCSS() {
       return `
-        width: 100p%;
-        height: 100px;
-        background-color: #${Math.floor(Math.random()*16777215).toString(16)}; // random
+      box-sizing: border-box;
+      width:100%;
+      height:100vh;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       `;
     }
   
@@ -28,8 +33,27 @@ customElements.define("main-container", class extends HTMLElement {
       return `
         <style>
           slot {
-            
+            background-color: white;
+            width: 100%;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
           }
+        h2{
+          background-color: white;  
+          width: 100%;
+          height: 30px;
+          color: black;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0;
+        }
+       
         </style>
       `;
     }
@@ -38,6 +62,7 @@ customElements.define("main-container", class extends HTMLElement {
       this.style.cssText = this.renderContainerCSS();
       const html = `
         ${this.renderStyle()}
+        <h2>Trending launches</h2>
         <slot></slot>
       `;
       this.shadow.innerHTML = html;

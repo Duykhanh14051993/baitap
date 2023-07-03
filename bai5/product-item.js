@@ -26,6 +26,7 @@ customElements.define("product-item", class extends HTMLElement {
       margin-left: 5px;
       margin-top: 10px;
       margin-bottom: 10px;
+      border-top: 1px solid black;
       `;
     }
   
@@ -48,9 +49,14 @@ customElements.define("product-item", class extends HTMLElement {
         .content{
           width: 95%;
           height:250px;
-          margin-top: 15px;
+          margin-top: 25px;
           margin-left: 5px;
           font-size: 15px;
+        }
+        .content2{
+          border-top: 0.2px solid black;
+          width: fit-content;
+          margin-top: 30px;
         }
         </style>
       `;

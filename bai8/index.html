@@ -18,6 +18,115 @@
   </head>
 
   <body>
-    
+    <main-container>
+
+    </main-container>
+    <script>
+      const list = [
+      {
+        logo:"https://ph-files.imgix.net/4e0f8c54-0bae-4b2f-8738-1f8f47e36f3e.webp?auto=format",
+        hatag:"#1",
+        name:"Unicorn Platform AI",
+        ad:"",
+        content:"simple lading page builder",
+      },
+      {
+        logo:"./image/logo4.png",
+        hatag:"#3",
+        name:"AI Cadences by Klenty",
+        ad:"",
+        content:"Create Al-driven sales sequences in less than 2 minutes",
+      },
+      {
+        logo:"./image/logo7.png",
+        hatag:"",
+        name:"Secureframe",
+        ad:"ad",
+        content:"Automated security compliance for your business in weeks",
+      },
+      {
+        logo:"./image/logo10.png",
+        hatag:"#8",
+        name:"Wyndy",
+        ad:"",
+        content:"The new way to do relationship management",
+      },
+      {
+        logo:"https://s3.ap-south-1.amazonaws.com/assets.ynos.in/startup-logos/YNOS435461.jpg",
+        hatag:"#2",
+        name:"UserStudy",
+        ad:"",
+        content:"Get deeper insights from users, in hours not weeks",
+      },
+      {
+        logo:"https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/neoiki5onbiwsc0oaqfd",
+        hatag:"#4",
+        name:"Swantide",
+        ad:"",
+        content:"Al-powered RevOps assistant",
+      },
+      {
+        logo:"https://ph-files.imgix.net/455618c4-c90e-4187-8996-9af8234bd851.png?auto=format",
+        hatag:"#6",
+        name:"Elfeed.net",
+        ad:"",
+        content:"Keep your favorite things in one feed",
+      },
+      {
+        logo:"https://ph-files.imgix.net/822c03ec-892e-4c10-9dcc-ae26fa540734.jpeg?auto=format",
+        hatag:"#9",
+        name:"Body Scan by Zing",
+        ad:"",
+        content:"Al-powered body scan to kickstart your fitness journey",
+      },
+      {
+        logo:"https://www.zohowebstatic.com/sites/oweb/images/ogimage/zohobigin-logo.png",
+        hatag:"",
+        name:"Bigin by Zoho CRM",
+        ad:"ad",
+        content:"CRM built specifically for small businesses and startups",
+      },
+      {
+        logo:"./image/logo6.png",
+        hatag:"#5",
+        name:"Popwork 2.0",
+        ad:"",
+        content:"The smart assistant for team  leaders",
+      },
+      {
+        logo:"./image/logo9.png",
+        hatag:"#7",
+        name:"Layer",
+        ad:"",
+        content:"Making your browser multiplayer",
+      },
+      
+      
+      {
+        logo:"./image/logo12.png",
+        hatag:"#10",
+        name:"Slated.ai",
+        ad:"",
+        content:"Al scheduling platform built for 3+ attendee meetings",
+      },
+      ];
+      const listHTML = list.map((item)=>{
+              return `
+              <product-item
+              logo="${item.logo}"
+              hatag="${item.hatag}"
+              name="${item.name}"
+              ad="${item.ad}"
+              content="${item.content}"
+              ></product-item>
+               `
+          });
+          const joined = listHTML.join('\n');
+          console.log(joined);
+          const mainContainer = document.querySelector('main-container');
+          if (mainContainer){
+              mainContainer.innerHTML =joined;
+          }
+     </script>
   </body>
 </html>
