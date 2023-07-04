@@ -44,14 +44,20 @@ customElements.define("main-container", class extends HTMLElement {
           }
         h2{
           background-color: white;  
-          width: 100%;
-          height: 30px;
           color: black;
           text-align: center;
           display: flex;
           justify-content: center;
           align-items: center;
           margin: 0;
+          z-index: 2;
+          padding: 10px 10px;
+        }
+        hr{
+          position: absolute;
+          top: 89px;
+          z-index: 1;
+          width: 95%;
         }
        
         </style>
@@ -63,6 +69,7 @@ customElements.define("main-container", class extends HTMLElement {
       const html = `
         ${this.renderStyle()}
         <h2>Trending launches</h2>
+        <hr/>
         <slot></slot>
       `;
       this.shadow.innerHTML = html;

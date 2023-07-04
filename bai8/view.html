@@ -16,17 +16,27 @@
         box-sizing: border-box;
       } 
       .container{
-        background-color: black;
+        background-color: white;
         width: 100%;
         height: 80vh;
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
       }
       h2{
-        color: white;
+        color: black;
+        z-index: 2;
+        background-color: white;
+        padding: 10px 10px;
       }
+      hr{
+        position: absolute;
+        top: 35px;
+        z-index: 1;
+      }
+
       .items{
         background-color: wheat;
         width: 100%;
@@ -81,6 +91,7 @@
   <body>
     <div class="container">
       <h2>Trending launches</h2>
+      <hr  width="100%" />
       <div class="items">
         <div class="item">
           <div class="left"></div>

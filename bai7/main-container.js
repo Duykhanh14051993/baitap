@@ -20,7 +20,7 @@ customElements.define("main-container", class extends HTMLElement {
       return `
       box-sizing: border-box;
       width:100%;
-      height:700px;
+      height:500px;
       background-color: white;
       display: flex;
       flex-direction: column;
@@ -34,7 +34,7 @@ customElements.define("main-container", class extends HTMLElement {
           slot {
         background-color: white;
         width: 100%;
-        height: 650px;
+        height: 500px;
         display: flex;
         flex-direction: row;
         justify-content: center;

@@ -7,7 +7,11 @@ customElements.define("main-container", class extends HTMLElement {
     static get observedAttributes() {
       return [];
     }
-  
+    state = { width: 0 };
+    setState = (newValue) => {
+      this.state = Object.assign(this.state, newValue);
+      this.renderHTML();
+    }
     attributeChangedCallback(attrName, oldVal, newVal) {
       this.renderHTML();
     }

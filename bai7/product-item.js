@@ -23,7 +23,7 @@ customElements.define("product-item", class extends HTMLElement {
       return `
         background-color:white;
         width: calc( 33% - 80px );
-        height: 400px;
+        height: 330px;
         margin-left: 20px;
         position: relative;
       `;
@@ -75,7 +75,7 @@ customElements.define("product-item", class extends HTMLElement {
           flex: 8;
         }
         .row1 .background{
-          opacity: 0.3;
+          opacity: 0.5;
         }
         .row1 .image{
           width: 50px;

@@ -26,6 +26,7 @@ customElements.define("product-item", class extends HTMLElement {
     margin-left: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
+    position: relative;
      `;
   }
 
@@ -43,6 +44,11 @@ customElements.define("product-item", class extends HTMLElement {
         height: 90px;
         border-radius: 5px;
         object-fit: cover;
+      }
+      .link-youtube  time p{
+        position: absolute;
+        top: 20px;
+        left: 70%;
       }
       .content {
         margin-top: 5px;
@@ -97,6 +103,7 @@ customElements.define("product-item", class extends HTMLElement {
       ${this.renderStyle()}
         <div class="link-youtube">
           <img src="${this.attr('image')}" alt="image">
+          <p class="time">4:23</p>
         </div>
         <div class="content">
         <div class="logo">

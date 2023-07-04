@@ -3,7 +3,9 @@ customElements.define("product-item", class extends HTMLElement {
       super();
       this.shadow = this.attachShadow({ mode: "open" });
     }
-  
+    state = {
+      width: 0
+    }
     static get observedAttributes() {
       return [ 'image', 'content1', 'content2' ];
     }
