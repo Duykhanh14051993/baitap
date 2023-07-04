@@ -22,9 +22,10 @@ customElements.define("product-item", class extends HTMLElement {
     renderContainerCSS() {
       return `
         background-color:white;
-        width: calc( 30% - 80px );
-        height: 280px;
+        width: calc( 33% - 80px );
+        height: 400px;
         margin-left: 20px;
+        position: relative;
       `;
     }
   
@@ -32,13 +33,14 @@ customElements.define("product-item", class extends HTMLElement {
       return `
         <style>
         .row1{
-          background-color: red;
+          background-color: white;
           width: 100%;
           height: 110px;
         }
         .row1 img{
           width: 100%;
           height: 110px;
+          object-fit: cover;
         }
         .row2{
           background-color: white;
@@ -48,7 +50,7 @@ customElements.define("product-item", class extends HTMLElement {
         .row3{
           background-color: white;
           width: 100%;
-          height: 100px;
+          height: 120px;
         }
         .row4{
           background-color: white;
@@ -72,6 +74,16 @@ customElements.define("product-item", class extends HTMLElement {
         .price{
           flex: 8;
         }
+        .row1 .background{
+          opacity: 0.3;
+        }
+        .row1 .image{
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          top: 10%;
+          left: 39%;
+        }
         </style>
       `;
     }
@@ -81,7 +93,8 @@ customElements.define("product-item", class extends HTMLElement {
       const html = `
         ${this.renderStyle()}
         <div class="row1">
-        <img src="${this.attr('image')}" alt="google-cloud">
+        <img src="${this.attr('image')}" alt="google-cloud" class="background">
+        <img src="${this.attr('image')}" alt="google-cloud" class="image">      
       </div>
       <div class="row2">
         <p>${this.attr('name')}</p>

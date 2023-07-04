@@ -20,7 +20,7 @@ customElements.define("main-container", class extends HTMLElement {
       return `
       box-sizing: border-box;
       width:100%;
-      height:100vh;
+      height:700px;
       background-color: white;
       display: flex;
       flex-direction: column;
@@ -40,6 +40,7 @@ customElements.define("main-container", class extends HTMLElement {
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
+        max-width: 1024px;
           }
         </style>
       `;

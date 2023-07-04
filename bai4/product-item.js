@@ -42,6 +42,7 @@ customElements.define("product-item", class extends HTMLElement {
         width: 100%;
         height: 90px;
         border-radius: 5px;
+        object-fit: cover;
       }
       .content {
         margin-top: 5px;
@@ -59,6 +60,7 @@ customElements.define("product-item", class extends HTMLElement {
         width: 25px;
         height: 25px;
         border-radius: 50%;
+        object-fit: cover;
       }
       .info{
         background-color: black;

@@ -43,6 +43,7 @@ customElements.define("product-item", class extends HTMLElement {
         .left img{
           width: 85px;
           height: 85px;
+          object-fit: cover;
         }
         .right{
           background-color: white;

@@ -3,7 +3,14 @@ customElements.define("product-item", class extends HTMLElement {
     super();
     this.shadow = this.attachShadow({ mode: "open" });
   }
+  state = {
+    width: 0
+  }
 
+  onWindowResize = () => {
+    console.log('on window resize', window.innerWidth);
+    this.setState({ width: window.innerWidth });
+  }
   static get observedAttributes() {
     return ['image', 'name'];
   }

@@ -42,6 +42,7 @@ customElements.define("product-item", class extends HTMLElement {
         .icon img{
           width: 100px;
           height: 100px;
+          object-fit: cover;
         }
         .name{
           width: 200px;

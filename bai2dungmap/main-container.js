@@ -3,7 +3,11 @@ class MainContainer extends HTMLElement {
     super();
     this.shadow = this.attachShadow({ mode: "open" });
   }
-
+  state = { width: 0 };
+    setState = (newValue) => {
+      this.state = Object.assign(this.state, newValue);
+      this.renderHTML();
+    }
   static get observedAttributes() {
     return [];
   }
