@@ -1,26 +1,23 @@
-customElements.define("product-item", class extends HTMLElement {
-    constructor() {
-      super();
-      this.shadow = this.attachShadow({ mode: "open" });
-    }
-    state = {
-      width: 0
-    }
+customElements.define("product-item", class extends CoreElement {
+  constructor() {
+    super();
+  }
+
+  state = {
+    width: ''
+  }
+
+  onWindowResize = () => {
+    this.setState({ width: window.innerWidth });
+  } 
     static get observedAttributes() {
       return [ 'image', 'content1', 'content2' ];
     }
      attr (name){
       return this.getAttribute(name);
     }
-    attributeChangedCallback(attrName, oldVal, newVal) {
-      this.renderHTML();
-    }
   
-    connectedCallback() {
-      this.renderHTML();
-    }
-  
-    renderContainerCSS() {
+    renderContainerCSS = () =>{
       return `
         background-color: #d4d9dc;
         width: calc( 20% - 20px );
@@ -34,7 +31,7 @@ customElements.define("product-item", class extends HTMLElement {
       `;
     }
   
-    renderStyle() {
+    renderStyle = () => {
       return `
         <style>
         .icon{
@@ -56,7 +53,7 @@ customElements.define("product-item", class extends HTMLElement {
       `;
     }
   
-    renderHTML() {
+    renderHTML = () =>  {
       this.style.cssText = this.renderContainerCSS();
       const html = `
         ${this.renderStyle()}
@@ -66,6 +63,7 @@ customElements.define("product-item", class extends HTMLElement {
             <div class="name">
                 <p>${this.attr('content1')}<br/>${this.attr('content2')}</p>
             </div>
+          ${this.state.width}
       `;
       this.shadow.innerHTML = html;
     }

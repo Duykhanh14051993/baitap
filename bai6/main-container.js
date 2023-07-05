@@ -1,26 +1,10 @@
-customElements.define("main-container", class extends HTMLElement {
-    constructor() {
-      super();
-      this.shadow = this.attachShadow({ mode: "open" });
-    }
+customElements.define("main-container", class extends CoreElement {
+  constructor() {
+    super();
+  }
+
   
-    static get observedAttributes() {
-      return [];
-    }
-    state = { width: 0 };
-    setState = (newValue) => {
-      this.state = Object.assign(this.state, newValue);
-      this.renderHTML();
-    }
-    attributeChangedCallback(attrName, oldVal, newVal) {
-      this.renderHTML();
-    }
-  
-    connectedCallback() {
-      this.renderHTML();
-    }
-  
-    renderContainerCSS() {
+  renderContainerCSS = () => {
       return `
       box-sizing: border-box;
       width:100%;
@@ -32,12 +16,12 @@ customElements.define("main-container", class extends HTMLElement {
       `;
     }
   
-    renderStyle() {
+    renderStyle = () => {
       return `
         <style>
           slot {
       background-color: #464d55;
-      width: 100%;
+      width: 100px;
       height: 100px;
       display: flex;
       flex-direction: row;
@@ -48,13 +32,13 @@ customElements.define("main-container", class extends HTMLElement {
       `;
     }
   
-    renderHTML() {
-      this.style.cssText = this.renderContainerCSS();
-      const html = `
-        ${this.renderStyle()}
-        <slot></slot>
-      `;
-      this.shadow.innerHTML = html;
-    }
-  });
     
+  renderHTML = () => {
+    this.style.cssText = this.renderContainerCSS();
+    const html = `
+      ${this.renderStyle()}
+      <slot></slot>
+    `;
+    this.shadow.innerHTML = html;
+  }
+});

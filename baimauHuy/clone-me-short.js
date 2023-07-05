@@ -11,12 +11,20 @@ customElements.define("clone-me-short", class extends CoreElement {
       console.log('on window resize', window.innerWidth);
       this.setState({ width: window.innerWidth });
     }
-  
+    // cách 1
     renderContainerCSS = () => {
+      let cssWidth = '50%';
+      if (this.state.width <= 480){
+        cssWidth = '100%';
+      } else if(this.state.width <= 768){
+        cssWidth = '75%';
+      } else {
+        cssWidth = '50%';
+      }
       return `
-        width: 100p%;
+        width: ${cssWidth};
         height: 100px;
-        background-color: #${Math.floor(Math.random()*16777215).toString(16)}; // random
+        background-color: red;
       `;
     }
   
@@ -29,9 +37,16 @@ customElements.define("clone-me-short", class extends CoreElement {
         </style>
       `;
     }
-  
+  // cách 2
     renderHTML = () => {
       this.style.cssText = this.renderContainerCSS();
+      if (this.state.width <= 480){
+        this.style.width = '100%';
+      } else if(this.state.width <= 768){
+        this.style.width = '75%';
+      } else {
+        this.style.width = '50%';
+      }
       const html = `
         ${this.renderStyle()}
         <slot></slot>

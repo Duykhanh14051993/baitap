@@ -45,7 +45,7 @@ customElements.define("product-item", class extends HTMLElement {
         border-radius: 5px;
         object-fit: cover;
       }
-      .link-youtube  time p{
+      .link-youtube  .time p{
         position: absolute;
         top: 20px;
         left: 70%;

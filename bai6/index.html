@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style></style>
+    <script src="coreElement.js"></script>
     <script src="main-container.js"></script>
     <script src="product-item.js"></script>
     <style>
@@ -54,7 +55,6 @@
                `
           });
           const joined = listHTML.join('\n');
-          console.log(joined);
           const mainContainer = document.querySelector('main-container');
           if (mainContainer){
               mainContainer.innerHTML =joined;
