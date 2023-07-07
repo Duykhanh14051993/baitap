@@ -34,6 +34,19 @@
     
     <button id="remove" style="margin-left: 10px;">Remove</button>
 </div>
+<div style="
+padding: 40px; 
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-top: 20px;
+">
+<input id="new-title" placeholder="Title" />
+<input id="new-image" placeholder="Image URL" />
+<input id="new-content" placeholder="content" />
+<button id="add">Add</button>
+</div>
     
 <main-container>
     
@@ -41,7 +54,7 @@
 
 
 <script>
-    // thay dổi const thành let vì let có thể thay đổi dc còn const sẽ giữ nguyên giá khi khi khao báo 
+    // thay dổi const thành let vì let có thể thay đổi dc còn const sẽ giữ nguyên giá khi khi khai báo 
     let list = [
         {
             img: 'https://images.pexels.com/photos/1109197/pexels-photo-1109197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
@@ -99,7 +112,7 @@
                     // dừng vòng lặp ngay lập tức
                 }
             }
-            // không hiểu
+            // -1 là 1 biến ko nằm trong list khi for chạy 1 lượt nên báo kết quả ko tìm thấy
             if ( itemIndex === -1){
                 alert('khong tim thay ket qua')
             } else {
@@ -108,9 +121,9 @@
                 if ( i === itemIndex){
                     // ko làm gì
                 } else {
-                    newList = push(list[i]);
+                    newList.push(list[i]);
                 }
-            }
+                console.log(newList);
             }
             list = newList;
             const listHTML = list.map(processItem);
@@ -118,8 +131,21 @@
             if (container) {
             container.innerHTML = joined;
             }
+            }
         }
     } 
+
+    // bước 1 khai báo biến
+    const buttonAdd = document.querySelector('#add');
+    const newTitle = document.querySelector('#new-title');
+    const newImage = document.querySelector('#new-image');
+    const newContent = document.querySelector('#new-content');
+    // bước 2 nếu click vào button add thì sẽ thêm phần tử mới
+    if (buttonAdd){
+        buttonAdd.onclick = ()=>{
+            console.log('button add click');
+        }
+    }
 
 </script>
 <body>
