@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="CoreElement.js"></script>
+    <script src="ratio-column.js"></script>
+    <script src="main-container.js"></script>
+    <script src="product-item.js"></script>
+    <style>
+        html, body { height: 100%; padding: 0; margin: 0 }
+        ratio-column {
+            width: calc( 33% - 20px );
+            margin: 10px
+        }
+        ratio-column img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @media (max-width: 480px) {
+            ratio-column {
+                width: calc( 50% - 20px );
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+<div style="padding: 40px; display: flex; flex-direction: row; align-items: center; justify-content: center; margin-top: 40px;">
+    <input id="search-bar" />
+    
+    <button id="remove">Remove</button>
+</div>
+
+<div style="padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 40px;">
+    <input id="new-title" placeholder="Title" />
+    <input id="new-image" placeholder="Image URL" />
+    <input id="new-description" placeholder="Description" />
+    <button id="add">Add</button>
+</div>
+    
+<main-container>
+    
+</main-container>
+
+
+<script>
+    let list = [
+        {
+            img: 'https://images.pexels.com/photos/1109197/pexels-photo-1109197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            title: 'nuoc cham',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla efficitur sem quis ullamcorper porta. Maecenas lobortis vehicula lectus, sed pharetra sem pharetra sit amet. Nulla eget facilisis justo. Sed suscipit eget tellus in ornare. Aliquam sed purus non felis faucibus auctor. Vivamus volutpat congue tellus ut pellentesque. Praesent bibendum leo non condimentum tempor. Pellentesque molestie, ligula et hendrerit consequat, eros nulla blandit leo, quis commodo purus tortor at erat. In congue varius urna, ac sagittis quam sagittis vitae. Praesent dictum ipsum neque, vel aliquet erat malesuada viverra. Proin ullamcorper tristique magna, consectetur pellentesque metus luctus quis. Sed in ultricies purus. Aliquam diam lorem, molestie ac ullamcorper sit amet, tempor eget sapien. Ut vitae erat diam.'
+        },
+        {
+            img: 'https://images.pexels.com/photos/920220/pexels-photo-920220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            title: 'banh mi',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla efficitur sem quis ullamcorper porta. Maecenas lobortis vehicula lectus, sed pharetra sem pharetra sit amet. Nulla eget facilisis justo. Sed suscipit eget tellus in ornare. Aliquam sed purus non felis faucibus auctor. Vivamus volutpat congue tellus ut pellentesque. Praesent bibendum leo non condimentum tempor. Pellentesque molestie, ligula et hendrerit consequat, eros nulla blandit leo, quis commodo purus tortor at erat. In congue varius urna, ac sagittis quam sagittis vitae. Praesent dictum ipsum neque, vel aliquet erat malesuada viverra. Proin ullamcorper tristique magna, consectetur pellentesque metus luctus quis. Sed in ultricies purus. Aliquam diam lorem, molestie ac ullamcorper sit amet, tempor eget sapien. Ut vitae erat diam.'
+        },
+        {
+            img: 'https://images.pexels.com/photos/3338497/pexels-photo-3338497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            title: 'salad',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla efficitur sem quis ullamcorper porta. Maecenas lobortis vehicula lectus, sed pharetra sem pharetra sit amet. Nulla eget facilisis justo. Sed suscipit eget tellus in ornare. Aliquam sed purus non felis faucibus auctor. Vivamus volutpat congue tellus ut pellentesque. Praesent bibendum leo non condimentum tempor. Pellentesque molestie, ligula et hendrerit consequat, eros nulla blandit leo, quis commodo purus tortor at erat. In congue varius urna, ac sagittis quam sagittis vitae. Praesent dictum ipsum neque, vel aliquet erat malesuada viverra. Proin ullamcorper tristique magna, consectetur pellentesque metus luctus quis. Sed in ultricies purus. Aliquam diam lorem, molestie ac ullamcorper sit amet, tempor eget sapien. Ut vitae erat diam.'
+        },
+        {
+            img: 'https://images.pexels.com/photos/3655916/pexels-photo-3655916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            title: 'ca hoi',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla efficitur sem quis ullamcorper porta. Maecenas lobortis vehicula lectus, sed pharetra sem pharetra sit amet. Nulla eget facilisis justo. Sed suscipit eget tellus in ornare. Aliquam sed purus non felis faucibus auctor. Vivamus volutpat congue tellus ut pellentesque. Praesent bibendum leo non condimentum tempor. Pellentesque molestie, ligula et hendrerit consequat, eros nulla blandit leo, quis commodo purus tortor at erat. In congue varius urna, ac sagittis quam sagittis vitae. Praesent dictum ipsum neque, vel aliquet erat malesuada viverra. Proin ullamcorper tristique magna, consectetur pellentesque metus luctus quis. Sed in ultricies purus. Aliquam diam lorem, molestie ac ullamcorper sit amet, tempor eget sapien. Ut vitae erat diam.'
+        }
+    ];
+    const container = document.querySelector('main-container');
+    const processItem = (item) => {
+        return  `
+            <product-item
+                img="${item.img}"
+                title="${item.title}"
+                description="${item.description}"
+            ></product-item>
+        `;
+    }
+    const listHTML = list.map(processItem);
+    const joined = listHTML.join('\n');
+    if (container) {
+        container.innerHTML = joined;
+    }
+
+    // bước 1 khai báo biến
+    const buttonRemove = document.querySelector('#remove');
+    // bước 2 Nếu click vào button remove mà kết quả đúng với giá trị trong list thì sẽ xóa
+    if(buttonRemove){
+        buttonRemove.onclick = () => {
+            const value = searchBar.value;
+        }
+    } 
+
+</script>
+<body>
+    
+</body>
+</body>
+</html>

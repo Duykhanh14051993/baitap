@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="CoreElement.js"></script>
+    <script src="ratio-column.js"></script>
+    <script src="main-container.js"></script>
+    <script src="product-item.js"></script>
+    <style>
+        html, body { height: 100%; padding: 0; margin: 0 }
+        ratio-column {
+            width: calc( 33% - 20px );
+            margin: 10px
+        }
+        ratio-column img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @media (max-width: 480px) {
+            ratio-column {
+                width: calc( 50% - 20px );
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+<div style="padding: 40px; display: flex; flex-direction: row; align-items: center; justify-content: center; margin-top: 40px;">
+    <input id="search-bar" />
+    
+    <button id="remove" style="margin-left: 10px;">Remove</button>
+</div>
+    
+<main-container>
+    
+</main-container>
+
+
+<script>
+    // thay dổi const thành let vì let có thể thay đổi dc còn const sẽ giữ nguyên giá khi khi khao báo 
+    let list = [
+        {
+            img: 'https://images.pexels.com/photos/1109197/pexels-photo-1109197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            title: 'nuoc cham',
+            description: 'Nước chấm chính là linh hồn của món ăn. Nhất là đối với món hấp, nước chấm chính là thành phần không thể thiếu tạo nên hương vị cho món ăn.'
+        },
+        {
+            img: 'https://images.pexels.com/photos/920220/pexels-photo-920220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            title: 'banh mi',
+            description: 'Bánh mì gối là một loại bánh mì được nướng trong khay. Sau khi nướng, nó được thái lát thành từng lát bánh mỏng gọi là lát bánh mì và được đóng gói cho tiện lợi để dễ sử dụng. Kiểu bánh mì này lần đầu tiên được bán vào năm 1928'
+        },
+        {
+            img: 'https://images.pexels.com/photos/3338497/pexels-photo-3338497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            title: 'salad',
+            description: 'Chuẩn bị nguyên liệu xong, bạn lấy tô rồi cho 1 cây xà lách, 1 trái dưa chuột, 4 trái cà chua bi đã cắt, cùng 200gr rong biển tươi, 1 muỗng cà phê sốt mè và 1 muỗng cà phê sốt mayonnaise vào. Cuối cùng, dùng đũa trộn đều lên rồi nêm nếm gia vị vừa ăn là thưởng thức được rồi nhé'
+        },
+        {
+            img: 'https://images.pexels.com/photos/3655916/pexels-photo-3655916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            title: 'ca hoi',
+            description: 'Cá hồi vân Pháp còn được gọi là Salmon trout thuộc họ hàng cá hồi nhưng khối lượng bé hơn, mỗi con chỉ có khối lượng từ 200-500gram. Đây là một loài cá hồi bản địa ở các sông nhánh của Thái Bình Dương ở châu Á và Bắc Mỹ.'
+        }
+    ];
+    const container = document.querySelector('main-container');
+    const processItem = (item) => {
+        return  `
+            <product-item
+                img="${item.img}"
+                title="${item.title}"
+                description="${item.description}"
+            ></product-item>
+        `;
+    }
+    const listHTML = list.map(processItem);
+    const joined = listHTML.join('\n');
+    if (container) {
+        container.innerHTML = joined;
+    }
+
+    // bước 1 khai báo biến
+    const searchBar = document.querySelector('#search-bar')
+    const buttonRemove = document.querySelector('#remove');
+    // bước 2 Nếu click vào button remove mà kết quả đúng với giá trị trong list thì sẽ xóa
+    if(buttonRemove){
+        buttonRemove.onclick = () => {
+            console.log('button REMOVE click');
+            const value = searchBar.value;
+            console.log('tim product "${value}" để xóa');
+            //bước 3 khai báo biến mới sẽ vòng lặp qua list
+            // tại sao itemIndex = -1
+            let itemIndex = -1;
+            for ( let i = 0; i < list.length; i++){
+                if (list[i].title === value){
+                    itemIndex = i;
+                    break;
+                    // dừng vòng lặp ngay lập tức
+                }
+            }
+            // không hiểu
+            if ( itemIndex === -1){
+                alert('khong tim thay ket qua')
+            } else {
+                const newList = [];
+                for ( let i = 0; i < list.length; i++){
+                if ( i === itemIndex){
+                    // ko làm gì
+                } else {
+                    newList = push(list[i]);
+                }
+            }
+            }
+            list = newList;
+            const listHTML = list.map(processItem);
+            const joined = listHTML.join('\n');
+            if (container) {
+            container.innerHTML = joined;
+            }
+        }
+    } 
+
+</script>
+<body>
+    
+</body>
+</body>
+</html>

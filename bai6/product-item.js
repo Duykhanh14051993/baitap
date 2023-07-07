@@ -1,33 +1,34 @@
-customElements.define("product-item", class extends CoreElement {
-  constructor() {
-    super();
-  }
-
-  state = {
-    width: ''
-  }
-
-  onWindowResize = () => {
-    this.setState({ width: window.innerWidth });
-  } 
+  customElements.define("product-item", class extends CoreElement {
+    constructor() {
+      super();
+    }
+  
+    state = {
+      width: ''
+    }
+  
+    onWindowResize = () => {
+      this.setState({ width: window.innerWidth });
+    }
     static get observedAttributes() {
       return [ 'image', 'content1', 'content2' ];
     }
-     attr (name){
-      return this.getAttribute(name);
+  
+    attr(name){
+        return this.getAttribute(name);
     }
   
-    renderContainerCSS = () =>{
+    renderContainerCSS = () => {
       return `
-        background-color: #d4d9dc;
-        width: calc( 20% - 20px );
-        height: 200px;
-        margin-left: 10px;
-        margin-top: 50px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+      background-color: #d4d9dc;
+      width: calc( 20% - 20px );
+      height: 200px;
+      margin-left: 10px;
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       `;
     }
   
@@ -41,7 +42,7 @@ customElements.define("product-item", class extends CoreElement {
         .icon img{
           width: 100px;
           height: 100px;
-          object-fit: cover;
+          object-fit: content;
         }
         .name{
           width: 200px;
@@ -53,7 +54,7 @@ customElements.define("product-item", class extends CoreElement {
       `;
     }
   
-    renderHTML = () =>  {
+    renderHTML = () => {
       this.style.cssText = this.renderContainerCSS();
       const html = `
         ${this.renderStyle()}

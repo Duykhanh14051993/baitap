@@ -3,23 +3,22 @@ customElements.define("main-container", class extends CoreElement {
     super();
   }
 
-  
   renderContainerCSS = () => {
-      return `
-      box-sizing: border-box;
-      width:100%;
-      height:100vh;
-      background-color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      `;
-    }
-  
-    renderStyle = () => {
-      return `
-        <style>
-          slot {
+    return `
+    box-sizing: border-box;
+    width:100%;
+    height:100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    `;
+  }
+
+  renderStyle = () => {
+    return `
+    <style>
+    slot {
       background-color: #464d55;
       width: 100px;
       height: 100px;
@@ -27,12 +26,11 @@ customElements.define("main-container", class extends CoreElement {
       flex-direction: row;
       justify-content: center;
       flex-wrap: wrap;
-          }
-        </style>
-      `;
-    }
-  
-    
+      }
+    </style>
+    `;
+  }
+
   renderHTML = () => {
     this.style.cssText = this.renderContainerCSS();
     const html = `

@@ -91,6 +91,9 @@ customElements.define("product-item", class extends HTMLElement {
         -webkit-line-clamp: 2;
         line-height: 1rem;
       }
+      .info b:hover{
+        overflow: visible;
+    white-space: pre-line;
       </style>
       
     `

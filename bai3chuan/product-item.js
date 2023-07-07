@@ -1,43 +1,46 @@
-customElements.define("product-item", class extends HTMLElement {
+customElements.define("product-item", class extends CoreElement {
   constructor() {
     super();
-    this.shadow = this.attachShadow({ mode: "open" });
   }
+
   state = {
-    width: 0
+    width: window.innerWidth
   }
 
   onWindowResize = () => {
-    console.log('on window resize', window.innerWidth);
     this.setState({ width: window.innerWidth });
   }
   static get observedAttributes() {
-    return ['image', 'name'];
-  }
-  attr (name){
-    return this.getAttribute(name);
-  }
-  attributeChangedCallback(attrName, oldVal, newVal) {
-    this.renderHTML();
+    return [ 'image', 'name', 'content1', 'content2' ];
   }
 
-  connectedCallback() {
-    this.renderHTML();
+  attr(name){
+      return this.getAttribute(name);
   }
 
-  renderContainerCSS() {
+  renderContainerCSS = () => {
+    let cssWidth = '20%';
+      if (this.state.width <= 480){
+        cssWidth = '60%';
+      } else if(this.state.width <= 768){
+        cssWidth = '30%';
+      } else {
+        cssWidth = '18%';
+      }
     return `
-    background-color: black;
-        width: calc( 20% - 20px ) ;
+        background-color: black;
+        width: ${cssWidth} ;
         height: 200px;
-          margin: 10px;
-     `;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+    `;
   }
 
-  renderStyle() {
+  renderStyle = () => {
     return `
       <style>
-    .image{
+      .image{
         width: 100%;
         height: 150px;
     }
@@ -55,12 +58,10 @@ customElements.define("product-item", class extends HTMLElement {
         font-weight: 800px;
     }
       </style>
-      
-    `
-    ;
+    `;
   }
 
-  renderHTML() {
+  renderHTML = () => {
     this.style.cssText = this.renderContainerCSS();
     const html = `
       ${this.renderStyle()}
@@ -76,4 +77,5 @@ customElements.define("product-item", class extends HTMLElement {
     this.shadow.innerHTML = html;
   }
 });
+  
   

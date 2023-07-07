@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view</title>
+</head>
+<style>
+    html, body { 
+         width: 100%;
+         padding: 0; 
+         margin: 0; 
+         display: flex; 
+         flex-direction: column;
+              }
+    .container{
+        background-color: pink;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+            }
+    .items{
+        background-color: wheat;
+        width: calc(30% - 20px);
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        }
+     h1{
+        background-color: chocolate;
+        width: 50%;
+        height: 30px;
+        margin-left: 10px;
+     }
+     .row1{
+        display: flex;
+        flex-direction: row;
+        margin-left: 10px;
+     }
+     .row1 input{
+        padding: 5px 60px;
+     }
+     .row1 button{  
+            padding: 20px 20px;
+     }
+     .item{
+        margin-top: 10px;
+        margin-left: 10px;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+     }
+     .item button{
+        padding: 20px 150px;
+     }
+     .item .image{
+        background-color: red;
+        width: 40px;
+        height: 45px;
+        position: absolute;
+        top: 0px;
+        left: 263px;
+        display: none;
+     }
+     .item:hover .image{
+        display: block;
+     }
+    .row3{
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+    .row3 p{
+        background-color: chocolate;
+        width: 50%;
+        height: 30px;
+    }
+    .row3 button{
+        padding: 10px 40px;
+        margin-left: 50px;
+    }
+
+</style>
+<body>
+    <div class="container">
+        <div class="items">
+            <h1></h1>
+        <div class="row1">
+            <input  type="text">
+            <button class="add"></button>
+        </div>
+        <div class="item">
+            <button></button>
+            <div class="image"></div>
+        </div>
+        <div class="item">
+            <button></button>
+            <div class="image"></div>
+        </div>
+        <div class="item">
+            <button></button>
+            <div class="image"></div>
+        </div>
+        <div class="item">
+            <button></button>
+            <div class="image"></div>
+        </div>
+        <div class="row3">
+            <p></p>
+            <button></button>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
