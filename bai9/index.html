@@ -38,17 +38,18 @@
         display: flex;
         flex-direction: row;
         margin-left: 10px;
+        /* padding: 40px; */
      }
-     .row1 input{
-        padding: 5px 60px;
+     .row1 input {
+        width: 80%;
      }
      .row1 button{  
         margin-left: 5px;
         background-color: blueviolet;
      }
      .row1 button img {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
      }
      .item{
         margin-top: 10px;
@@ -56,15 +57,40 @@
         position: relative;
         display: flex;
         flex-direction: row;
+        /* padding: 40px; */
      }
-     .item button{
-        width: calc(100% - 45px);
-        height: 45px;
+     .item .trash{
+        height: 30px;
+        width: 30px;
+        position: absolute;
+        top: 0;
+        left: 320px;
+        display: none;
      }
-     .item .image{
+     .item:hover .trash{
+        display: block;
+     }
+     .item .image {
         background-color: red;
-        width: 40px;
-        height: 45px;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 0;
+        left: 320px;
+        display: none;
+     }
+     .item:hover .image{
+        display: block;
+     }
+     .item .buy {
+        width: calc(100% - 15px);
+        height: 30px;
+     }
+     
+     /* .item .image{
+        background-color: red;
+        width: 30px;
+        height: 30px;
         position: absolute;
         top: 0px;
         left: 265px;
@@ -82,7 +108,7 @@
         background-color: chocolate;
         width: 50%;
         height: 30px;
-    }
+    } */
     /* .row3 button{
         width: 40px;
         height: 30px;
@@ -101,21 +127,25 @@
             </button>
         </div>
         <div class="item">
-            <button>Buy a new gaming laptop</button>
+            <button class="buy">Buy a new gaming laptop</button>
+            <button class="trash"></button>
             <img src="./image/trash.svg" alt="trash" class="image">
         </div>
-        <div class="item">
+<!-- <div class="item">
             <button>Complete a previous task</button>
+            <button class="trash"></button>
             <img src="./image/trash.svg" alt="trash" class="image">
         </div>
         <div class="item">
             <button>Create video for Youtube</button>
+            <button class="trash"></button>
             <img src="./image/trash.svg" alt="trash" class="image">
         </div>
         <div class="item">
             <button>Create a new portflolio site</button>
+            <button class="trash"></button>
             <img src="./image/trash.svg" alt="trash" class="image">
-        </div>
+        </div> -->
         <div class="row3">
             <p></p>
             <button>Clear All</button>
