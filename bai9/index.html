@@ -65,6 +65,7 @@
         margin-top: 10px;
         padding-left: 10px;
         padding-right: 10px;
+        padding-bottom: 5px;
      }
      .row3 button{
         background-color: #9b42f6;
@@ -88,7 +89,7 @@
 
         </main-container>
         <div class="row3">
-            <p>you have <span class="pendingTasks"></span> pending tasks </p>
+            <span>you have <span id="pendingTasks"></span> pending tasks</span>
             <button id="removeAll" onclick="deleteAll()" >Clear All</button>
         </div>
     </div>
@@ -108,10 +109,11 @@
                 },
             ];
     const container = document.querySelector('main-container');
-    const processItem = (item) => {
+    const processItem = (item, index) => {
         return  `
             <product-item
-                name="${item.name}""
+                name="${item.name}"
+                index="${index}"
             ></product-item>
         `;
     }
@@ -120,6 +122,7 @@
     if (container) {
         container.innerHTML = joined;
     }
+    // khai báo tổng số item 
     const pendingTasksNumber = document.querySelector('#pendingTasks');
     pendingTasksNumber.textContent = list.length;
     // thêm phần tử 
@@ -145,9 +148,12 @@
             if (container) {
             container.innerHTML = joined;
             }   
+            const pendingTasksNumber = document.querySelector('#pendingTasks');
+            pendingTasksNumber.textContent = list.length;
                 }
 
             }
+            
             // removeall
             // khai báo 
             const removeAll = document.querySelector('#removeAll');
@@ -158,15 +164,18 @@
                 const joined = listHTML.join('\n');
                 if (container) {
                 container.innerHTML = joined;
-                }   
+                } 
+                const pendingTasksNumber = document.querySelector('#pendingTasks');
+                pendingTasksNumber.textContent = list.length;  
             }
-
+            
 
         // remove 1 phân tử 
         // bước 1 khai báo biến
         const remove = document.querySelector('#remove');
         // bước 2 khi click vào button remove thì sẽ xóa 1 phần tử
        function deleteItem(index){
+        debugger;
             const listRemove = [];
             for ( let i = 0; i < list.length; i++){
                 if ( i === index){
@@ -181,6 +190,8 @@
             if (container) {
             container.innerHTML = joined;
             }   
+            const pendingTasksNumber = document.querySelector('#pendingTasks');
+            pendingTasksNumber.textContent = list.length; 
             }
           
 

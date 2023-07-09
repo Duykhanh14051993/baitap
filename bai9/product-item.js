@@ -11,7 +11,7 @@ customElements.define("product-item", class extends CoreElement {
       this.setState({ width: window.innerWidth });
     }
     static get observedAttributes() {
-      return [ 'image', 'name', ];
+      return [ 'image', 'name','index'];
     }
   
     attr(name){
@@ -56,19 +56,20 @@ customElements.define("product-item", class extends CoreElement {
           left: 310px;
           display: none;
           border-radius: 5px;
+          background-color: #f9372d;
        }
        .item:hover .trash{
           display: block;
        }
        .item .image {
-          background-color: #f9372d;
-          width: 30px;
-          height: 30px;
+          width: 25px;
+          height: 25px;
           position: absolute;
           top: 0;
-          left: 310px;
+          left: 0;
           border-radius: 5px;
           display: none;
+          object-fit: cover;
        }
        .item:hover .image{
           display: block;
@@ -88,8 +89,7 @@ customElements.define("product-item", class extends CoreElement {
             class="trash" 
             id="remove"
             onclick="deleteItem(${this.attr('index')})"
-            ></button>
-            <img src="./image/trash.svg" alt="trash" class="image">
+            ><img src="./image/trash1.png" alt="trash" class="image"></button>
         </div>
       `;
       this.shadow.innerHTML = html;
