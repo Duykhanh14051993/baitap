@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>view</title>
-</head>
-<style>
-    html, body { 
+    <title>bai 9</title>
+    <style>
+
+        html, body { 
          width: 100%;
          padding: 0; 
          margin: 0; 
@@ -14,54 +14,96 @@
          flex-direction: column;
               }
     .container{
-        background-color: pink;
+        background-image: linear-gradient(180deg, #00eacc, #3485ee);
         width: 100%;
         height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
             }
     .items{
-        background-color: wheat;
+        background-color: white;
         width: calc(30% - 20px);
-        height: 500px;
+        height: 400px;
         display: flex;
         flex-direction: column;
         }
      h1{
-        background-color: chocolate;
+        background-color: white;
         width: 50%;
-        height: 30px;
+        height: 40px;
         margin-left: 10px;
      }
      .row1{
         display: flex;
         flex-direction: row;
         margin-left: 10px;
+        /* padding: 40px; */
      }
-     .row1 input{
-        padding: 5px 60px;
+     .row1 input {
+        width: 80%;
      }
      .row1 button{  
-            padding: 20px 20px;
+        margin-left: 5px;
+        background-color: #9845ed;
+     }
+     .row1 button img {
+        width: 30px;
+        height: 30px;
      }
      .item{
-        margin-top: 10px;
+        margin-top: 20px;
         margin-left: 10px;
         position: relative;
         display: flex;
         flex-direction: row;
+        /* padding: 40px; */
      }
-     .item button{
-        padding: 20px 150px;
+     .item .trash{
+        height: 30px;
+        width: 30px;
+        position: absolute;
+        top: 0;
+        left: 310px;
+        display: none;
      }
-     .item .image{
+     .item:hover .trash{
+        display: block;
+     }
+     .item .image {
+        background-color: #f9372d;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 0;
+        left: 310px;
+        display: none;
+     }
+     .item:hover .image{
+        display: block;
+     }
+     .item .buy {
+        width: calc(100% - 15px);
+        height: 30px;
+     }
+     .row3{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+     }
+     .row3 button{
+        background-color: #9b42f6;
+        padding: 5px 10px;
+     }
+     /* .item .image{
         background-color: red;
-        width: 40px;
-        height: 45px;
+        width: 30px;
+        height: 30px;
         position: absolute;
         top: 0px;
-        left: 263px;
+        left: 265px;
         display: none;
      }
      .item:hover .image{
@@ -76,41 +118,47 @@
         background-color: chocolate;
         width: 50%;
         height: 30px;
-    }
-    .row3 button{
-        padding: 10px 40px;
+    } */
+    /* .row3 button{
+        width: 40px;
+        height: 30px;
         margin-left: 50px;
-    }
-
-</style>
+    } */
+    </style>
+</head>
 <body>
     <div class="container">
         <div class="items">
-            <h1></h1>
+            <h1>Todo App</h1>
         <div class="row1">
-            <input  type="text">
-            <button class="add"></button>
+            <input  type="text" placeholder="Add your new todo">
+            <button class="add">
+                <img src="./image/add.svg" alt="add">
+            </button>
         </div>
         <div class="item">
-            <button></button>
-            <div class="image"></div>
+            <button class="buy">Buy a new gaming laptop</button>
+            <button class="trash"></button>
+            <img src="./image/trash.svg" alt="trash" class="image">
+        </div>
+<div class="item">
+            <button class="buy">Complete a previous task</button>
+            <button class="trash"></button>
+            <img src="./image/trash.svg" alt="trash" class="image">
         </div>
         <div class="item">
-            <button></button>
-            <div class="image"></div>
+            <button class="buy">Create video for Youtube</button>
+            <button class="trash"></button>
+            <img src="./image/trash.svg" alt="trash" class="image">
         </div>
         <div class="item">
-            <button></button>
-            <div class="image"></div>
-        </div>
-        <div class="item">
-            <button></button>
-            <div class="image"></div>
+            <button class="buy">Create a new portflolio site</button>
+            <button class="trash"></button>
+            <img src="./image/trash.svg" alt="trash" class="image">
         </div>
         <div class="row3">
-            <p></p>
-            <button></button>
-        </div>
+            <p>you have pending tasks</p>
+            <button>Clear All</button>
         </div>
     </div>
 </body>

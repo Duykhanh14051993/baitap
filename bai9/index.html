@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bai 9</title>
+    <script src="coreElement.js"></script>
+    <script src="main-container.js"></script>
+    <script src="product-item.js"></script>
     <style>
 
         html, body { 
@@ -14,23 +17,22 @@
          flex-direction: column;
               }
     .container{
-        background-color: pink;
+        background-image: linear-gradient(180deg, #00eacc, #3485ee);
         width: 100%;
         height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
             }
     .items{
-        background-color: wheat;
+        background-color: white;
         width: calc(30% - 20px);
-        height: 500px;
         display: flex;
         flex-direction: column;
         }
      h1{
-        background-color: chocolate;
-        width: 50%;
+        width:100%;
         height: 40px;
         margin-left: 10px;
      }
@@ -38,82 +40,38 @@
         display: flex;
         flex-direction: row;
         margin-left: 10px;
+        padding-right: 10px;
         /* padding: 40px; */
      }
      .row1 input {
         width: 80%;
+        border-radius: 5px;
      }
      .row1 button{  
         margin-left: 5px;
-        background-color: blueviolet;
+        background-color: #9845ed;
+        border-radius: 5px;
      }
      .row1 button img {
         width: 30px;
         height: 30px;
-     }
-     .item{
-        margin-top: 10px;
-        margin-left: 10px;
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        /* padding: 40px; */
-     }
-     .item .trash{
-        height: 30px;
-        width: 30px;
-        position: absolute;
-        top: 0;
-        left: 320px;
-        display: none;
-     }
-     .item:hover .trash{
-        display: block;
-     }
-     .item .image {
-        background-color: red;
-        width: 30px;
-        height: 30px;
-        position: absolute;
-        top: 0;
-        left: 320px;
-        display: none;
-     }
-     .item:hover .image{
-        display: block;
-     }
-     .item .buy {
-        width: calc(100% - 15px);
-        height: 30px;
+        border-radius: 5px;
      }
      
-     /* .item .image{
-        background-color: red;
-        width: 30px;
-        height: 30px;
-        position: absolute;
-        top: 0px;
-        left: 265px;
-        display: none;
-     }
-     .item:hover .image{
-        display: block;
-     }
-    .row3{
+     .row3{
         display: flex;
-        flex-direction: row;
-        margin-top: 20px;
-    }
-    .row3 p{
-        background-color: chocolate;
-        width: 50%;
-        height: 30px;
-    } */
-    /* .row3 button{
-        width: 40px;
-        height: 30px;
-        margin-left: 50px;
-    } */
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+     }
+     .row3 button{
+        background-color: #9b42f6;
+        padding: 5px 10px;
+        border-radius: 5px;
+     }
+     
     </style>
 </head>
 <body>
@@ -121,35 +79,111 @@
         <div class="items">
             <h1>Todo App</h1>
         <div class="row1">
-            <input  type="text" placeholder="Add your new todo">
-            <button class="add">
+            <input  type="text" placeholder="Add your new todo" class="content" id="content">
+            <button class="add" id="add">
                 <img src="./image/add.svg" alt="add">
             </button>
         </div>
-        <div class="item">
-            <button class="buy">Buy a new gaming laptop</button>
-            <button class="trash"></button>
-            <img src="./image/trash.svg" alt="trash" class="image">
-        </div>
-<!-- <div class="item">
-            <button>Complete a previous task</button>
-            <button class="trash"></button>
-            <img src="./image/trash.svg" alt="trash" class="image">
-        </div>
-        <div class="item">
-            <button>Create video for Youtube</button>
-            <button class="trash"></button>
-            <img src="./image/trash.svg" alt="trash" class="image">
-        </div>
-        <div class="item">
-            <button>Create a new portflolio site</button>
-            <button class="trash"></button>
-            <img src="./image/trash.svg" alt="trash" class="image">
-        </div> -->
+        <main-container id="container">
+
+        </main-container>
         <div class="row3">
-            <p></p>
-            <button>Clear All</button>
+            <p>you have <span class="pendingTasks"></span> pending tasks </p>
+            <button id="removeAll" onclick="deleteAll()" >Clear All</button>
         </div>
     </div>
+        <script>
+            let list = [
+                {
+                    name:"Buy a new gaming laptop",
+                },
+                {
+                    name:"Complete a previous task",
+                },
+                {
+                    name:"Create video for Youtube",
+                },
+                {
+                    name:"Create a new portflolio site",
+                },
+            ];
+    const container = document.querySelector('main-container');
+    const processItem = (item) => {
+        return  `
+            <product-item
+                name="${item.name}""
+            ></product-item>
+        `;
+    }
+    const listHTML = list.map(processItem);
+    const joined = listHTML.join('\n');
+    if (container) {
+        container.innerHTML = joined;
+    }
+    const pendingTasksNumber = document.querySelector('#pendingTasks');
+    pendingTasksNumber.textContent = list.length;
+    // thêm phần tử 
+            // khai báo
+            const  buttonAdd = document.querySelector('#add');
+            const content = document.querySelector('#content');
+            // bước 2 nếu click vào thì thêm phần tử
+            if (buttonAdd){
+                buttonAdd.onclick = () =>{
+                    console.log('button add click');
+            // khai báo nội dung cần thêm ứng với content.value
+                    let name = content.value;
+                    let itemAdd = {
+                        name : name,
+                    };
+                    const listAdd = [];
+                    listAdd.push(itemAdd);
+            //concat nối các mảng với nhau thành 1 mảng mới
+                    const newList = list.concat(listAdd);
+                    list = newList;
+                    const listHTML = list.map(processItem);
+            const joined = listHTML.join('\n');
+            if (container) {
+            container.innerHTML = joined;
+            }   
+                }
+
+            }
+            // removeall
+            // khai báo 
+            const removeAll = document.querySelector('#removeAll');
+            // tạo function xóa     
+            function deleteAll(){
+                list = [];
+                const listHTML = list.map(processItem);
+                const joined = listHTML.join('\n');
+                if (container) {
+                container.innerHTML = joined;
+                }   
+            }
+
+
+        // remove 1 phân tử 
+        // bước 1 khai báo biến
+        const remove = document.querySelector('#remove');
+        // bước 2 khi click vào button remove thì sẽ xóa 1 phần tử
+       function deleteItem(index){
+            const listRemove = [];
+            for ( let i = 0; i < list.length; i++){
+                if ( i === index){
+                    // ko làm gì 
+                } else {
+                    listRemove.push(list[i]);
+                }
+            }
+            list = listRemove;
+            const listHTML = list.map(processItem);
+            const joined = listHTML.join('\n');
+            if (container) {
+            container.innerHTML = joined;
+            }   
+            }
+          
+
+        </script>
 </body>
 </html>
